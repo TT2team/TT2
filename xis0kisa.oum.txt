@@ -1,0 +1,16 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   fuel/app/classes/controller/drinks.php
+#	modified:   fuel/app/config/routes.php
+#	renamed:    public/index.html -> fuel/app/views/template.php
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	fuel/app/views/drinks/
+

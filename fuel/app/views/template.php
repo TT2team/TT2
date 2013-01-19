@@ -24,25 +24,22 @@
 
 <section id="leftColumn" class="column">
 	<nav id="leftNavigation">
-		<ul id="leftmenu">
-			<li><a href="beer.html">Beer</a></li>
-			<li><a href="whisky.html">Whiskey</a></li>
-			<li><a href="vodka.html">Vodka</a></li>
-			<li><a href="tequila.html">Tequila</a></li>
-			<li><a href="gin.html">Gin</a></li>
-			<li><a href="cider.html">Cider</a></li>
-			<li><a href="wine.html">Wine</a></li>
-		</ul>
+		<?php
+                    if(isset($navigation))
+                    {
+                        echo $navigation;
+                    }
+                ?>
 	</nav>
 </section>
 
 <section id="rightColumn" class="column">
-	<h2>Welcome!</h2>
-	<p>
-		Ever wondered what is tequila or gin made of? What is the difference between cider and wine?<br>
-		Today you'll get answers to all this questions and even more!
-	</p>
-	<img class="large" alt="poster" width="800" src="pictures/welcome.jpg"/>
+	<?php
+            if(isset($content))
+            {
+                echo $content;
+            }
+        ?>
 </section>
 
 </div>
