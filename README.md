@@ -40,3 +40,4 @@ The above command is the same as running:
 You can also shorten the last two commands to one:
 
     git submodule update --init
+Izmenenija ...
