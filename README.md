@@ -41,3 +41,5 @@ You can also shorten the last two commands to one:
 
     git submodule update --init
 Izmenenija ...
+
+Je6o izmenenija
