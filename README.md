@@ -1,45 +1,11 @@
-#FuelPHP
-
-* Version: 1.4
-* [Website](http://fuelphp.com/)
-* [Release Documentation](http://docs.fuelphp.com)
-* [Development Documentation](http://fueldevdocs.exite.eu) and in its own [git repo](https://github.com/fuel/docs)
-* [Forums](http://fuelphp.com/forums) for comments, discussion and community support
-
-## Description
-
-FuelPHP is a fast, lightweight PHP 5.3 framework. In an age where frameworks are a dime a dozen, We believe that FuelPHP will stand out in the crowd.  It will do this by combining all the things you love about the great frameworks out there, while getting rid of the bad.
-
-##Development Team
-
-* Harro Verton - Project Manager, Developer ([http://wanwizard.eu/](http://wanwizard.eu/))
-* Jelmer Schreuder - Project Architect, Senior Developer ([http://jelmerschreuder.nl/](http://jelmerschreuder.nl/))
-* Frank de Jonge - Developer ([http://frenky.net/](http://frenky.net/))
-* Phil Sturgeon - Developer ([http://philsturgeon.co.uk](http://philsturgeon.co.uk))
-* Dan Horrigan - Founder, Developer ([http://dhorrigan.com](http://dhorrigan.com))
-
-##Downloading FuelPHP
-
-Since FuelPHP uses Submodules and since GitHub Downloads don't support submodules, do not download FuelPHP using the Downloads link here. Instead, use the [download links location in the docs](http://docs.fuelphp.com/installation/download.html).
-
-##Cloning FuelPHP
-
-FuelPHP uses submodules for things like the **core** folder.  After you clone the repository you will need to init and update the submodules.
-
-Here is the basic usage:
-
-    git clone --recursive git://github.com/fuel/fuel.git
-
-The above command is the same as running:
-
-    git clone git://github.com/fuel/fuel.git
-    cd fuel/
-    git submodule init
-    git submodule update
-
-You can also shorten the last two commands to one:
-
-    git submodule update --init
-Izmenenija ...
-
-Je6o izmenenija
+Praktiskā darba “Friday Drink” apraksts.
+Izstrādes komanda
+Darba izstrādē piedalās divi LU DF studenti:
+  Jans Glagoļevs, jg11054 
+  Maksims Savčuks, ms11148 
+Izstrādes platforma
+Sistēmu paredzēts izstrādāt PHP 5.3 vidē, izmantojot FuelPHP 1.4 bibliotēku. Datu glabāšanai paredzēts lietot MySQL datubāzi. Koda glabāšanai tiks izmantota GitHub sistēma. 
+Galvenā funkcionalitāte
+Darbā tiks izstrādāta internetā sistēma, kura ļaus lietotājiem dalīties ar alkoholisko kokteiļu receptēm. Sistēma ļaus lietotājiem publicēt tiem zināmas kokteiļu receptes. Publicētas receptes varēs apskatīties visi lietotāji, atlasot tos pēc sastāvdaļām, popularitātes, publicēšanas datuma vai nosaukuma. Koteiliem varēs pievienot komentārus un atzīmes. 
+Datu reģistri
+Būtiskākie sistēmā esošie jēdzieni ir: administrātors, kokteilis, komentārs, viesis, atzīme un administrātora darbība. Sistemā glabājas kokteili, kurus ir izveidojis kāds no viesiem. Katram kokteilim ir piesaistītas atzīmes un komentāri. Administratoriem ir iespēja rediģēt vai dzēst komentārus un kokteiļus. To darbību uzskaite tiks saglabāta. Administrātoram būs iespējams redzēt savu darbību vēsturi. Viesi un admistrātori var atlasīt sev interesojošus kokteiļus pēc izvelētiem kritērijiem.
