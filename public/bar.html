@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Bar - Friday Drink</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link type="text/css" rel="stylesheet" href="printstyle.css" media="print" /> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/bar.js"></script>
+</head>
+<body>
+<div id="main">
+
+<header>
+	<img id="logo" alt="logo" width="1000" src="http://www.pourplanning.com/wp-content/uploads/2011/07/Header_4.jpg"/>
+	<h1 id="mainTitle">Friday Drink</h1>
+		<nav id="topNavigation">
+			<ul id="mainmenu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="bar.html">Bar</a></li>
+				<li class="last"><a href="aboutMe.html">About me</a></li>
+			</ul>
+		</nav>
+</header>
+
+<section id="leftColumn" class="column">
+	<nav id="leftNavigation">
+		<ul id="leftmenu">
+			<li><a href="beer.html">Beer</a></li>
+			<li><a href="whisky.html">Whiskey</a></li>
+			<li><a href="vodka.html">Vodka</a></li>
+			<li><a href="tequila.html">Tequila</a></li>
+			<li><a href="gin.html">Gin</a></li>
+			<li><a href="cider.html">Cider</a></li>
+			<li><a href="wine.html">Wine</a></li>
+		</ul>
+	</nav>
+</section>
+
+<section id="rightColumn" class="column">
+	<h2>Bar</h2>
+	<p>
+	<img alt="poster" src="http://cache2.allpostersimages.com/p/LRG/10/1058/BMWL000Z/posters/ricetta-del-long-island-ice-tea.jpg"/>
+		Know some great cocktail? Want to share it with everyone? <br>
+		Now you have this possibility!
+	</p>
+	<form id="coctailForm" action="http://naivist.net/form" onSubmit="return false">
+		<h3>Cocktail maker</h3>
+		<div class="inputRow" id="row1">
+		<input type="text" name="amount1" placeholder="amount" class="amount">
+		<select name="unit1" class="unit">
+			<option value="empty"></option>
+			<option value="part(s)">part</option>
+			<option value="ml">ml</option>
+			<option value="l">l</option>
+			<option value="piece">piece(s)</option>
+			<option value="oz">oz</option>
+			<option value="teaspoon">teaspoon</option>
+			<option value="dessertSpoon">dessert spoon</option>
+		</select>
+		<input name="ingredient1" type="text" placeholder="ingredient" class="ingredient">
+		</div>
+		
+		<div class="inputRow" id="row2">
+			<input name="amount2" type="text" placeholder="amount" class="amount">
+		<select name="unit2" class="unit">
+			<option value="empty"></option>
+			<option value="part(s)">part</option>
+			<option value="ml">ml</option>
+			<option value="l">l</option>
+			<option value="piece">piece(s)</option>
+			<option value="oz">oz</option>
+			<option value="teaspoon">teaspoon</option>
+			<option value="dessertSpoon">dessert spoon</option>
+		</select>
+		<input name="ingredient2" type="text" placeholder="ingredient" class="ingredient">
+		</div>
+		
+		
+		<p id="paragraphOfButtons">
+			<button id="submitButton">Submit</button>
+			<button id="add">Add ingredient</button>
+			<button id="delete">Delete ingredient</button>
+		</p>
+		 
+	
+	</form>
+	
+	<br>
+	<p class="small">
+		<img alt="shotImage" width="100" height="100" src="pictures/shot.png" id="shot"/>
+		Take a shot if you don't feel brave enough for submitting your cocktail
+	</p>
+	<br>
+	<p id="medvedText" class="hidden">This russian idiom reminds you: <i>"Every man to his taste."</i><br>
+	So don't be afraid: feel in the form and press submit button.
+	</p>
+	<img alt="idiomImage" id="medved" class="hidden" src="pictures/medved.jpg"/>
+</section>
+
+</div>
+</body>
+</html>
