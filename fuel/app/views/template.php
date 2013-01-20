@@ -17,7 +17,7 @@
 			<ul id="mainmenu">
 				<li><?php echo Html::anchor('drinks/index', 'Home'); ?></li>
 				<li><?php echo Html::anchor('drinks/list', 'Bar');?></li>
-				<li class="last"><a href="aboutMe.html">About me</a></li>
+				<li class="last"><?php echo Html::anchor('drinks/about', 'About');?></li>
 			</ul>
 		</nav>
 </header>
