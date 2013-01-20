@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Friday Drink</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<?php echo Asset::css('style.css'); ?>
 <link type="text/css" rel="stylesheet" href="printstyle.css" media="print" /> 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
@@ -16,7 +16,7 @@
 		<nav id="topNavigation">
 			<ul id="mainmenu">
 				<li><?php echo Html::anchor('drinks/index', 'Home'); ?></li>
-				<li><?php echo Html::anchor('drinks/bar', 'Home');?></li>
+				<li><?php echo Html::anchor('drinks/list', 'Bar');?></li>
 				<li class="last"><a href="aboutMe.html">About me</a></li>
 			</ul>
 		</nav>
