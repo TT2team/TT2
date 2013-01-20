@@ -15,8 +15,8 @@
 	<h1 id="mainTitle">Friday Drink</h1>
 		<nav id="topNavigation">
 			<ul id="mainmenu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="bar.html">Bar</a></li>
+				<li><?php echo Html::anchor('drinks/index', 'Home'); ?></li>
+				<li><?php echo Html::anchor('drinks/bar', 'Home');?></li>
 				<li class="last"><a href="aboutMe.html">About me</a></li>
 			</ul>
 		</nav>
