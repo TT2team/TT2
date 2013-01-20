@@ -3,8 +3,12 @@ class Controller_Drinks extends Controller_Template
 {
     public function action_index($page_id=NULL)
     {
-        
+        $nav = Model_Content::find('all');
+        $view = View::forge('drinks/navigation');
+        $view->set('nav',$nav);
+        $this->template->navigation=$view;
         $view = View::forge('drinks/index');
+        $this->template->navigation=$view;
         
     }
     public function  action_list()
