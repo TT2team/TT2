@@ -3,7 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Friday Drink</title>
-<?php echo Asset::css('style.css'); ?>
+<?php 
+echo Asset::css('style.css');
+echo Asset::css('bootstrap.css');
+?>
 <link type="text/css" rel="stylesheet" href="printstyle.css" media="print" /> 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
