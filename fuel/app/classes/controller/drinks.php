@@ -1,13 +1,7 @@
 <?php
 class Controller_Drinks extends Controller_Template
 {
-    public function gridConstructor($view, $data, $page_num, $elem_num_on_page)
-    {
-        $output = View::forge($view);
-        $output->set('data',$data);
-        $this->template->content=$output;
-        
-    }
+    
     public function action_index($page_id=NULL)
     {
         
@@ -17,7 +11,7 @@ class Controller_Drinks extends Controller_Template
         $this->template->navigation=$left_nav;
         if(isset($page_id))
         {
-           $data = Model_Content::find($id=$page_id);
+           $data = Model_Content::find($page_id);
            $view = View::forge('drinks/index');
            $view->set('data',$data);
            $this->template->content=$view;
@@ -32,6 +26,10 @@ class Controller_Drinks extends Controller_Template
     }
     public function  action_list($page_id=NULL)
     {
+        if(isset($_GET["name"])
+        {
+            
+        }
         $nav = Model_Content::find('all');
         $left_nav = View::forge('drinks/navigation');
         $left_nav->set('nav',$nav);
