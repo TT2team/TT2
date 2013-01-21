@@ -14,6 +14,7 @@ echo Asset::css('bootstrap.css');
 <div id="main">
 
 <header>
+    <?php echo Html::anchor('admin/login', 'Login'); ?>
 	<img id="logo" alt="logo" width="1000" src="http://www.pourplanning.com/wp-content/uploads/2011/07/Header_4.jpg"/>
 	<h1 id="mainTitle">Friday Drink</h1>
 		<nav id="topNavigation">
@@ -48,7 +49,7 @@ echo Asset::css('bootstrap.css');
 </section>
 
 <footer>
-  <?php echo Html::anchor('admin/login', 'Login as administrator'); ?>
+  
 </footer>
 
 </div>

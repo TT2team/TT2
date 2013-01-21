@@ -26,20 +26,32 @@ class Controller_Drinks extends Controller_Template
     }
     public function  action_list($page_id=NULL)
     {
-        if(isset($_GET["name"])
-        {
-            
-        }
         $nav = Model_Content::find('all');
         $left_nav = View::forge('drinks/navigation');
         $left_nav->set('nav',$nav);
         $this->template->navigation=$left_nav;
-        
-        $list=  Model_Kokteilis::find('all');
-        $view = View::forge('drinks/list');
-        $view->set('data',$list);
-        $this->template->content=$view;
-        
+        if(isset($_GET["name"])&&isset($_GET["ingr"])&&$_GET["name"]!=NULL&&$_GET["ingr"]!=NULL)
+        {
+            
+        }
+        else if(isset($_GET["name"])&&$_GET["name"]!=NULL)
+        {
+            $list=  Model_Kokteilis::find('all', array('where'=> array(array('name','LIKE','%'.$_GET["name"].'%'))));
+            $view = View::forge('drinks/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+        }
+        else if(isset($_GET["ingr"]))
+        {
+            
+        }
+        else 
+        {    
+            $list=  Model_Kokteilis::find('all');
+            $view = View::forge('drinks/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+        }
     }
     public function action_view()
     {
