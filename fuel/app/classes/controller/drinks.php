@@ -65,7 +65,7 @@ class Controller_Drinks extends Controller_Template
     public function action_about()
     {
         $view=View::forge('drinks/about');
-        $this->template->content=$view;
+        $this->template->content=$view; 
     }
     
     public function  action_404()
