@@ -41,7 +41,7 @@ class Controller_Drinks extends Controller_Template
             $view->set('data',$list);
             $this->template->content=$view;
         }
-        else if(isset($_GET["ingr"]))
+        else if(isset($_GET["ingr"])&&$_GET["ingr"]!=NULL)
         {
             
         }
