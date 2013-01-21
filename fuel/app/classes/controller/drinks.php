@@ -30,9 +30,21 @@ class Controller_Drinks extends Controller_Template
         $left_nav = View::forge('drinks/navigation');
         $left_nav->set('nav',$nav);
         $this->template->navigation=$left_nav;
+        $list=array();
+        $list[]=0;
         if(isset($_GET["name"])&&isset($_GET["ingr"])&&$_GET["name"]!=NULL&&$_GET["ingr"]!=NULL)
         {
-            
+            /*$list = Model_Kokteilis::find('all',array(
+                'where' => array(
+                    'related' => array(
+                        'name'=> $_GET["ingr"])
+                    )
+                )
+            );
+            $view = View::forge('drinks/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+            */
         }
         else if(isset($_GET["name"])&&$_GET["name"]!=NULL)
         {
@@ -43,7 +55,28 @@ class Controller_Drinks extends Controller_Template
         }
         else if(isset($_GET["ingr"])&&$_GET["ingr"]!=NULL)
         {
-            
+            /*
+            $ingridients = Model_Ingredient::find('all');
+           
+            $rec_id=array();
+            foreach ($ingridients as $ingr)
+            {
+                
+                
+                if($ingr->name=$_GET["ingr"])
+                {
+                    $rec_id[]=$ingr->kokteilis_id;
+                    
+                }
+                $query='';
+                foreach ($rec_id as $id)
+                {
+                    $query=$query.' id='.$id.' OR';
+                }
+            }
+            $view = View::forge('drinks/list');
+            $view->set('data',$list);
+            $this->template->content=$view;*/
         }
         else 
         {    
@@ -60,6 +93,7 @@ class Controller_Drinks extends Controller_Template
     public function  action_add()
     {
         $view=View::forge('drinks/add');
+        $this->template->content=$view;
     }
     
     public function action_about()
