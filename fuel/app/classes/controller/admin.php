@@ -53,7 +53,12 @@ class Controller_Admin extends Controller_Template
         }
     */    
     }
-   
+   public function action_index()
+   {
+        
+
+            
+   }
     
 }
 
