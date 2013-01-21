@@ -1,6 +1,7 @@
 <?php
 
 echo '<h2>Admin home page</h2>';
+echo $_POST['id'];
 
 if(isset($darbiba))
 {
@@ -9,10 +10,10 @@ if(isset($darbiba))
     echo '<thead>';
         echo '<tr>';
         echo '<td>';
-        echo 'action_id';
+        echo 'action';
         echo '</td>';
         echo '<td>';        
-        echo 'changed_code';        
+        echo 'changed_id';        
         echo '</td>';
         echo '<td>';
         echo 'chenged_name';
@@ -24,10 +25,27 @@ if(isset($darbiba))
     {
         echo '<tr>';
         echo '<td>';
-        echo $ad->action_id;
+        if($ad->action_code==0){
+            echo 'Login';
+        }else if($ad->action_code==10){
+            echo 'Added page';
+        }else if($ad->action_code==11){
+            echo 'Edited page';
+        }else if($ad->action_code==12){
+            echo 'Deleted page';
+        }else if($ad->action_code==20){
+            echo 'Edited coctail';
+        }else if($ad->action_code==21){
+            echo 'Deleted coctail';
+        }else if($ad->action_code==30){
+            echo 'Edited comment';
+        }else if($ad->action_code==31){
+            echo 'Deleted comment';
+        }else
+        //echo $ad->action_code;
         echo '</td>';
         echo '<td>';
-        echo $ad->changed_code;
+        echo $ad->changed_id;
         echo '</td>';
         echo '<td>';
         echo $ad->changed_name;
