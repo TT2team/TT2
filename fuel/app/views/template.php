@@ -24,12 +24,14 @@
 
 <section id="leftColumn" class="column">
 	<nav id="leftNavigation">
+            <ul id="leftmenu">
 		<?php
                     if(isset($navigation))
                     {
                         echo $navigation;
                     }
                 ?>
+            </ul>
 	</nav>
 </section>
 

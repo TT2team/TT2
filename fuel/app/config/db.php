@@ -2,8 +2,8 @@
 
 
 return array(
-    Fuel::DEVELOPMENT => array(
-	'type'			=> 'mysql',
+	'default' => array(
+		'type'			=> 'mysql',
 	'connection'	=> array(
 		'hostname'   => 'localhost',
 		'database'   => 'fridaydrink',
@@ -12,8 +12,8 @@ return array(
 		'persistent' => false,
 	),
 	'table_prefix' => '',
-	'charset'      => 'utf16',
+	'charset'      => 'utf8',
 	'caching'      => false,
 	'profiling'    => false,
-)
+	),
 );
