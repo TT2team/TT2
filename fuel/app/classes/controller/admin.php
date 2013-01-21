@@ -56,7 +56,7 @@ class Controller_Admin extends Controller_Template
     }
    public function action_index()
    {
-        if(!empty($_SESSION["id"])){
+        //if(!empty($_SESSION["id"])){
             $darbiba = Model_Darbiba::find('all');
             $index=View::forge('admin/index');
             $index->set('darbiba',$darbiba,false);
@@ -64,9 +64,9 @@ class Controller_Admin extends Controller_Template
             
             
             $this->template->content=$index;
-        }else{
-            Response::redirect('drinks/index');
-        }
+        //}else{
+        //    Response::redirect('drinks/index');
+        //}
 
            
    }

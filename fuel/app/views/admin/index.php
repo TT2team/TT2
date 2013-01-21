@@ -1,7 +1,7 @@
 <?php
 
 echo '<h2>Admin home page</h2>';
-echo $_POST['id'];
+//echo $_POST['id'];
 
 if(isset($darbiba))
 {
