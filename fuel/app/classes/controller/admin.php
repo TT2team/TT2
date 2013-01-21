@@ -23,6 +23,7 @@ class Controller_Admin extends Controller_Template
             foreach($administrator as $adm){
                 if($adm->username == $fields['username'] and $adm->password == $fields['password']){
                     $login_success=true;
+                    $_SESSION['id']=$adm->id;
                     Response::redirect('admin/index');  //sdesj dolzhno bitj dejstvije, kotoroje vipolnitsja v slu4aje uspe6noj autentifikacii
                 }
             }
@@ -55,9 +56,19 @@ class Controller_Admin extends Controller_Template
     }
    public function action_index()
    {
-        
-
+        if(isset($_SESSION['id'])){
+            $darbiba = Model_Darbiba::find('all');
+            $index=View::forge('admin/index');
+            $index->set('darbiba',$darbiba,false);
             
+            
+            
+            $this->template->content=$index;
+        }else{
+            Response::redirect('drinks/index');
+        }
+
+           
    }
     
 }
