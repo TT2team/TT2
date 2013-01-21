@@ -1,8 +1,22 @@
 <?php
 
-class Model_Content extends Orm\Model{
+class Model_Kokteilis extends Orm\Model{
     protected static $_primary_key=array('id');
     protected static $_table_name = 'kokteilis';
+    protected static $has_many =array(
+        'ingredient'=>array(
+            'model_to'=>'Model_Ingredient',
+            'key_from'=>'id',
+            'key_to'=>'kokteilis_id',
+        ),
+        
+        'komentars'=>array(
+            'model_to'=>'Model_Komentars',
+            'key_from'=>'id',
+            'key_to'=>'kokteilis_id',
+        ),
+    );
+    
     protected static $_properties = array(
         
         'id',

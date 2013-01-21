@@ -1,8 +1,14 @@
 <?php
 
-class Model_Content extends Orm\Model{
+class Model_Ingredient extends Orm\Model{
     protected static $_primary_key=array('id');
     protected static $_table_name = 'ingredient';
+    protected static $_belongs_to = array('kokteilis' => array(
+            'model_to' => 'Model_Kokteilis',
+            'key_from' => 'kokteilis_id',
+            'key_to' => 'id',
+        )
+    );
     protected static $_properties = array(
         
         'id',
