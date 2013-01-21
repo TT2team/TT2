@@ -47,6 +47,10 @@ echo Asset::css('bootstrap.css');
         ?>
 </section>
 
+<footer>
+  <?php echo Html::anchor('admin/login', 'Login as administrator'); ?>
+</footer>
+
 </div>
 </body>
 </html>

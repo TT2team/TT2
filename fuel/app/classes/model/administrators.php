@@ -1,17 +1,18 @@
 <?php
 
 class Model_Administrators extends Orm\Model{
-    protected static $_primary_key=array('username');
+    protected static $_primary_key=array('id');
     protected static $_table_name = 'administrators';
     protected static $has_many =array('administratora_darbiba'=>array(
             'model_to'=>'Model_Administratora_Darbiba',
-            'key_from'=>'username',
-            'key_to'=>'administrators_username',
+            'key_from'=>'id',
+            'key_to'=>'administrators_id',
         )
     );
     
     protected static $_properties = array(
         
+        'id',
         'username' => array(
             'data_type' => 'varchar',
             'label' => 'Username',
