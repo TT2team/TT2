@@ -89,6 +89,17 @@ class Controller_Drinks extends Controller_Template
     }
     public function action_view($id=NULL)
     {
+        if(isset($_POST["name"])&&$_POST["name"]!=NULL&&isset($_POST["comment"])&&$_POST["comment"]!=NULL)
+        {
+            if(isset($id))
+            {
+                $new = Model_Komentars::forge();
+                $new->kokteilis_id=$id;
+                $new->username = $_POST["name"];
+                $new->comment=$_POST["comment"];
+                $new->save();
+            }
+        }
         $nav = Model_Content::find('all');
         $left_nav = View::forge('drinks/navigation');
         $left_nav->set('nav',$nav);
@@ -98,9 +109,11 @@ class Controller_Drinks extends Controller_Template
         {
             $data =  Model_Kokteilis::find($id);
             $comp = Model_Ingredient::find('all', array('where'=>array('kokteilis_id'=>$id)));
+            $coment = Model_Komentars::find('all',array('where'=>array('kokteilis_id'=>$id)));
             $view=View::forge('drinks/view');
             $view->set('cocktail',$data);
             $view->set('comp',$comp);
+            $view->set('comments',$coment);
             $this->template->content=$view;
         }
     }
@@ -136,6 +149,10 @@ class Controller_Drinks extends Controller_Template
     
     public function action_about()
     {
+        $nav = Model_Content::find('all');
+        $left_nav = View::forge('drinks/navigation');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
         $view=View::forge('drinks/about');
         $this->template->content=$view; 
     }
@@ -146,7 +163,20 @@ class Controller_Drinks extends Controller_Template
         $this->template->content=$view;
     }
     
-   
+    public function action_like($id=NULL)
+    {
+        $drink=  Model_Kokteilis::find($id);
+        $drink->likes++;
+        $drink->save();
+        Response::redirect('drinks/view/'.$id);
+    }
+    public function action_dislike($id=NULL)
+    {
+        $drink=Model_Kokteilis::find($id);
+        $drink->unlikes++;
+        $drink->save();
+        Response::redirect('drinks/view/'.$id);
+    }
     
     
 }
