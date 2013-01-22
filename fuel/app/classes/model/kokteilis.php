@@ -3,8 +3,8 @@
 class Model_Kokteilis extends Orm\Model{
     protected static $_primary_key=array('id');
     protected static $_table_name = 'kokteilis';
-    protected static $has_many =array(
-        'ingredient'=>array(
+    protected static $_has_many =array(
+        'ingrid'=>array(
             'model_to'=>'Model_Ingredient',
             'key_from'=>'id',
             'key_to'=>'kokteilis_id',

@@ -34,17 +34,12 @@ class Controller_Drinks extends Controller_Template
         
         if(isset($_GET["name"])&&isset($_GET["ingr"])&&$_GET["name"]!=NULL&&$_GET["ingr"]!=NULL)
         {
-            /*$list = Model_Kokteilis::find('all',array(
-                'where' => array(
-                    'related' => array(
-                        'name'=> $_GET["ingr"])
-                    )
-                )
-            );
+            $list=  Model_Kokteilis::find('all', array('where'=> array(array('name','LIKE','%'.$_GET["name"].'%')),
+                'related'=>array('ingrid'=> array('where'=>array('ingredient'=>$_GET["ingr"])))));
             $view = View::forge('drinks/list');
             $view->set('data',$list);
             $this->template->content=$view;
-            */
+            
         }
         else if(isset($_GET["name"])&&$_GET["name"]!=NULL)
         {
@@ -55,18 +50,11 @@ class Controller_Drinks extends Controller_Template
         }
         else if(isset($_GET["ingr"])&&$_GET["ingr"]!=NULL)
         {
-            
-//            $ingridients = Model_Ingredient::find('all',array('where'=>array('ingredient'=>$_GET["ingr"])));
-//           
-//            $rec_id=array();
-//            foreach ($ingridients as $ingr)
-//            {
-//                $list=  Model_Kokteilis::find('all',array('where'=>array('id'=>'ingridients->kokteilis_id')));
-//                
-//            }
-//            $view = View::forge('drinks/list');
-//            $view->set('data',$list);
-//            $this->template->content=$view;
+            $list= Model_Kokteilis::find('all',array('related'=>array('ingrid'=> array('where'=>array('ingredient'=>$_GET["ingr"])))));
+            $view = View::forge('drinks/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+
         }
         else 
         {    
