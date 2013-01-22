@@ -60,6 +60,9 @@ if(isset($darbiba))
 echo '<a href="newpage">Add new page</a>';
 echo ' &nbsp &nbsp &nbsp &nbsp &nbsp';
 echo '<a href="editpage">Edit existing page</a>';
-
+echo ' &nbsp &nbsp &nbsp &nbsp &nbsp';
+echo '<a href="deletepage">Delete existing page</a>';
+echo '<br>';
+echo '<a href="list">View Cocktails</a>';
 
 ?>

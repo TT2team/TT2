@@ -139,7 +139,72 @@ class Controller_Admin extends Controller_Template
             $entry->save();
         }
    }
+   
+   public function action_deletepage($page_id=NULL){
+       $nav = Model_Content::find('all');
+       $left_nav = View::forge('admin/navdel');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
+        
+           
+           $view = View::forge('admin/deletepage');
+           
+           $this->template->content=$view;
+        
+   }
+   public function action_delete($id=NULL)
+   {
+       $del = Model_Content::find($id);
+       $del->delete();
+       Response::redirect('admin/deletepage');
+   }
     
+   public function action_delkokteil($id=NULL)
+   {
+       $del = Model_Kokteilis::find($id);
+       $del->delete();
+       Response::redirect('admin/list');
+       
+   }
+   public function action_list()
+   {
+        $nav = Model_Content::find('all');
+        $left_nav = View::forge('drinks/navigation');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
+        
+        if(isset($_GET["name"])&&isset($_GET["ingr"])&&$_GET["name"]!=NULL&&$_GET["ingr"]!=NULL)
+        {
+            $list=  Model_Kokteilis::find('all', array('where'=> array(array('name','LIKE','%'.$_GET["name"].'%')),
+                'related'=>array('ingrid'=> array('where'=>array('ingredient'=>$_GET["ingr"])))));
+            $view = View::forge('admin/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+            
+        }
+        else if(isset($_GET["name"])&&$_GET["name"]!=NULL)
+        {
+            $list=  Model_Kokteilis::find('all', array('where'=> array(array('name','LIKE','%'.$_GET["name"].'%'))));
+            $view = View::forge('admin/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+        }
+        else if(isset($_GET["ingr"])&&$_GET["ingr"]!=NULL)
+        {
+            $list= Model_Kokteilis::find('all',array('related'=>array('ingrid'=> array('where'=>array('ingredient'=>$_GET["ingr"])))));
+            $view = View::forge('admin/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+
+        }
+        else 
+        {    
+            $list=  Model_Kokteilis::find('all');
+            $view = View::forge('admin/list');
+            $view->set('data',$list);
+            $this->template->content=$view;
+        }
+   }
 }
 
 ?>
