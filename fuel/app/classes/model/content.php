@@ -5,7 +5,9 @@ class Model_Content extends Orm\Model{
     protected static $_table_name = 'content';
     protected static $_properties = array(
         
-        'id' => array( 'auto_increment'=>true ),
+        'id' => array(
+            'data_type'=>'int',
+            'auto_increment'=>true ),
         'name' => array(
             'data_type' => 'varchar',
             'label' => 'Drink name',

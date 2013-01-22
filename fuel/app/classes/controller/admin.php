@@ -90,32 +90,53 @@ class Controller_Admin extends Controller_Template
         }
    }
    
-   public function action_editpage(){
-        $cont = Model_Content::find(0); //eto s id==0
-            $values_inside=array(  //eto vrodi dolzhno budet dobavitj v formu to, 4to uzhe jestj v baze dannih
-                'name' => $cont->name,
-                'text' => $cont->text,
-                'picture_url' => $cont->picture_url,
-            );
+   public function action_editpage($page_id=1){
+       
+        $content = Model_Content::find('all'); //eto s id==0
+        foreach($content as $cont){
+            if(isset($page_id)){
+                if($cont->id == $page_id){
+                    $values_inside=array(  //eto vrodi dolzhno budet dobavitj v formu to, 4to uzhe jestj v baze dannih
+                        'name' => $cont->name,
+                        'text' => $cont->text,
+                        'picture_url' => $cont->picture_url,
+                    );
+                }
+            }else{
+                $values_inside=array(  //eto vrodi dolzhno budet dobavitj v formu to, 4to uzhe jestj v baze dannih
+                        'name' => '',
+                        'text' => '',
+                        'picture_url' => '',
+                );
+            }
+        }
             
         
         
         $fieldset = Fieldset::forge()->add_model('Model_Content');
 	$form     = $fieldset->form();
-        $form->populate($values_inside);
+        $form->populate($values_inside, true);
         $form->add('submit', '', array('type' => 'submit', 'value' => 'Add', 'class' => 'btn medium primary'));
-        $login=View::forge('admin/newpage');
+        $login=View::forge('admin/editpage');
         $login->set('form', $form->build(), false);
         $this->template->content=$login;
         
+        
+        $nav = Model_Content::find('all');
+        $left_nav = View::forge('admin/navigation');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
+        
+        
+        //nado zamenitj na obnovlenije
         if($fieldset->validation()->run() == true){     //esli projdena proverka na praviljnostj vvoda
             $fields = $fieldset->validated();   //fields, eto massiv s proverennimi poljami
             
-            $new = new Model_Content();
-            $new->name=$fields['name'];
-            $new->text=$fields['text'];
-            $new->picture_url=$fields['picture_url'];
-            $new->save();
+            $entry = Model_Content::find($page_id);
+            $entry->name=$fields['name'];
+            $entry->text=$fields['text'];
+            $entry->picture_url=$fields['picture_url'];
+            $entry->save();
         }
    }
     
