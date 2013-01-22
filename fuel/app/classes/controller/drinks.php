@@ -26,6 +26,7 @@ class Controller_Drinks extends Controller_Template
     }
     public function  action_list($page_id=NULL)
     {
+        
         $nav = Model_Content::find('all');
         $left_nav = View::forge('drinks/navigation');
         $left_nav->set('nav',$nav);
@@ -86,12 +87,49 @@ class Controller_Drinks extends Controller_Template
             $this->template->content=$view;
         }
     }
-    public function action_view()
+    public function action_view($id=NULL)
     {
+        $nav = Model_Content::find('all');
+        $left_nav = View::forge('drinks/navigation');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
         $view=View::forge('drinks/view');
+        if(isset($id))
+        {
+            $data =  Model_Kokteilis::find($id);
+            $comp = Model_Ingredient::find('all', array('where'=>array('kokteilis_id'=>$id)));
+            $view=View::forge('drinks/view');
+            $view->set('cocktail',$data);
+            $view->set('comp',$comp);
+            $this->template->content=$view;
+        }
     }
     public function  action_add()
     {
+        $nav = Model_Content::find('all');
+        $left_nav = View::forge('drinks/navigation');
+        $left_nav->set('nav',$nav);
+        $this->template->navigation=$left_nav;
+        if(isset($_GET["amount1"]))
+        {
+            $new = Model_Kokteilis::forge();
+            $new->name=$_GET["name"];
+            $new->likes=0;
+            $new->unlikes=0;
+            $new->save();
+            $rec = Model_Kokteilis::find('last',array('where'=> array('name'=>$_GET["name"])));
+            $i=1;
+            while(isset($_GET["amount".$i]))
+            {
+                $new=  Model_Ingredient::forge();
+                $new->amount=$_GET["amount".$i];
+                $new->ingredient=$_GET["ingredient".$i];
+                $new->unit=$_GET["unit".$i];
+                $new->kokteilis_id=$rec->id;
+                $new->save();
+                $i++;
+            }
+        }
         $view=View::forge('drinks/add');
         $this->template->content=$view;
     }

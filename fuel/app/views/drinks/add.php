@@ -1,7 +1,10 @@
 <?php
+echo Asset::js('bar.js');
 echo 
-'<form id="coctailForm" action="http://naivist.net/form" onSubmit="return false">
+'<form id="coctailForm"  onSubmit="return false">
 		<h3>Cocktail maker</h3>
+                <label>Name:</label>
+                <input type="text" name="name" id="name">
 		<div class="inputRow" id="row1">
 		<input type="text" name="amount1" placeholder="amount" class="amount">
 		<select name="unit1" class="unit">
