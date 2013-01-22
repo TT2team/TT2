@@ -57,5 +57,9 @@ if(isset($darbiba))
     echo '</table>';
 }
 
+echo '<a href="newpage">Add new page</a>';
+echo ' &nbsp &nbsp &nbsp &nbsp &nbsp';
+echo '<a href="editpage">Edit existing page</a>';
+
 
 ?>
